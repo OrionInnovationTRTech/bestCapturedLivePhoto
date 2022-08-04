@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
-struct ImageData {
-    var id: Int
+struct ImageData: Identifiable {
+    var id = UUID()
     var photoFrame: UIImage
-    var qualityRequestText: String
+    var qualityRequestText: String = ""
 }
