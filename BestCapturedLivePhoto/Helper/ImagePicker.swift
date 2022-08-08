@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 import Photos
 
-struct VideoPicker: UIViewControllerRepresentable{
+struct ImagePicker: UIViewControllerRepresentable{
     
     @Binding var videoURL:String?
 
@@ -35,8 +35,8 @@ func makeUIViewController(context: Context) -> PHPickerViewController {
     class Coordinator:NSObject, PHPickerViewControllerDelegate{
         
         
-        let parent:VideoPicker
-        init(_ parent: VideoPicker){
+        let parent:ImagePicker
+        init(_ parent: ImagePicker){
             self.parent = parent
             
         }

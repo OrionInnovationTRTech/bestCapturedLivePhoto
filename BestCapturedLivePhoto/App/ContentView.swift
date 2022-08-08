@@ -60,7 +60,7 @@ struct ContentView: View {
                           Image(systemName: "camera")
                         }
                         .popover(isPresented: $showSheet) {
-                            VideoPicker(videoURL: $image)
+                            ImagePicker(videoURL: $image)
                         }
                       }
                 }
@@ -94,6 +94,7 @@ struct ContentView_Previews: PreviewProvider {
                ]
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
 

@@ -50,54 +50,6 @@ class PhotosViewModel: ObservableObject {
     
     //MARK: - FUNCTIONS
     
-    //: Videoyu karelere ayırmak için kullanılan iki fonksiyon
-    
-    func imagesFromVideo(url: URL) {
-            let asset = AVURLAsset(url: url)
-            
-        DispatchQueue.main.async {
-            self.generator = AVAssetImageGenerator(asset: asset)
-            self.generator.appliesPreferredTrackTransform = true
-            self.generator.apertureMode = .encodedPixels
-            let duration:Float64 = CMTimeGetSeconds(asset.duration)
-            
-            let frameInterval = duration/Double(self.numberOfFrames)
-            
-            var nsValues : [NSValue] = []
-            
-            //: Başlangıç bitişi alıyoruz stride ile 0'dan ...
-            
-            for index in stride(from: 0, through: duration, by: frameInterval) {
-                let cmTime  = CMTime(seconds: Double(index), preferredTimescale: 60)
-                let nsValue = NSValue(time: cmTime)
-                nsValues.append(nsValue)
-            }
-            
-            self.getFrame(nsValues: nsValues)
-        }
-    }
-    
-    //: Image dizisi yaratıyoruz: generateCGImagesAsynchronously
-        
-    private func getFrame(nsValues:[NSValue]) {
-        
-        var images : [UIImage] = []
-        generator.generateCGImagesAsynchronously(forTimes: nsValues) { (time, cgImage, time2, result, error) in
-            DispatchQueue.main.async {
-                if let cgImage = cgImage{
-                    images.append(UIImage(cgImage: cgImage))
-                }
-                if images.count == nsValues.count{
-                    self.videoFrames = images
-                }
-            }
-        }
-        
-        
-    }
-    
-    
-    
     //: Canlı Fotoğrafın kaynaklarına ulaşıyoruz: assetResources
     
     func processLivePhoto(livePhoto: PHLivePhoto)
@@ -152,6 +104,54 @@ class PhotosViewModel: ObservableObject {
             
             return success != nil ? photoDir! as NSURL : nil
         }
+    
+    //: Videoyu karelere ayırmak için kullanılan iki fonksiyon
+    
+    func imagesFromVideo(url: URL) {
+            let asset = AVURLAsset(url: url)
+            
+        DispatchQueue.main.async {
+            self.generator = AVAssetImageGenerator(asset: asset)
+            self.generator.appliesPreferredTrackTransform = true
+            self.generator.apertureMode = .encodedPixels
+            let duration:Float64 = CMTimeGetSeconds(asset.duration)
+            
+            let frameInterval = duration/Double(self.numberOfFrames)
+            
+            var nsValues : [NSValue] = []
+            
+            //: Başlangıç bitişi alıyoruz stride ile 0'dan ...
+            
+            for index in stride(from: 0, through: duration, by: frameInterval) {
+                let cmTime  = CMTime(seconds: Double(index), preferredTimescale: 60)
+                let nsValue = NSValue(time: cmTime)
+                nsValues.append(nsValue)
+            }
+            
+            self.getFrame(nsValues: nsValues)
+        }
+    }
+    
+    //: Image dizisi yaratıyoruz: generateCGImagesAsynchronously
+        
+    private func getFrame(nsValues:[NSValue]) {
+        
+        var images : [UIImage] = []
+        generator.generateCGImagesAsynchronously(forTimes: nsValues) { (time, cgImage, time2, result, error) in
+            DispatchQueue.main.async {
+                if let cgImage = cgImage{
+                    images.append(UIImage(cgImage: cgImage))
+                }
+                if images.count == nsValues.count{
+                    self.videoFrames = images
+                }
+            }
+        }
+        
+        
+    }
+    
+    
     
     func setCustomData(){
         
@@ -219,5 +219,4 @@ class PhotosViewModel: ObservableObject {
         }
     
     
-   
 }
