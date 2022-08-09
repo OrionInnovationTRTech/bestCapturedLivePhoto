@@ -34,8 +34,10 @@ class PhotosViewModel: ObservableObject {
     
     @Published var photos : [ImageData] = []
     
+    @State var isBestPhoto = true
+    
     @Published var generator: AVAssetImageGenerator!
-    var numberOfFrames = 15
+    var numberOfFrames = 9
     
     
     
@@ -202,6 +204,7 @@ class PhotosViewModel: ObservableObject {
                         }
                         else{
                             self.photos[i].qualityRequestText = "0.00"
+                            self.photos[i].photoFrame = UIImage(named: "faceError")!
                         }
 
                     }catch(let error){
@@ -213,6 +216,8 @@ class PhotosViewModel: ObservableObject {
                     
                     if bestFrameIndex != -1{
                         self.bestPhoto = self.photos[bestFrameIndex].photoFrame
+                    } else {
+                        self.bestPhoto = UIImage(named: "faceError")!
                     }
                 }
             }

@@ -20,6 +20,7 @@
 		5F50F74D288A97FB00BEFBB7 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F50F74C288A97FB00BEFBB7 /* PhotosViewModel.swift */; };
 		5F50F74F288AA04D00BEFBB7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F50F74E288AA04D00BEFBB7 /* ImagePicker.swift */; };
 		5F50F751288AA6D000BEFBB7 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F50F750288AA6D000BEFBB7 /* ImageData.swift */; };
+		5FB392AC28A25C9900CEB85E /* SelectedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB392AB28A25C9900CEB85E /* SelectedPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		5F50F74C288A97FB00BEFBB7 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		5F50F74E288AA04D00BEFBB7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5F50F750288AA6D000BEFBB7 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		5FB392AB28A25C9900CEB85E /* SelectedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5F439D79289BEB7800BA4D66 /* PhotoView.swift */,
+				5FB392AB28A25C9900CEB85E /* SelectedPhotoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,8 +183,8 @@
 		5F439D7B289C178D00BA4D66 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5F0C10F7288A874700C3426A /* ContentView.swift */,
 				5F0C10882889E27500C3426A /* BestCapturedLivePhotoApp.swift */,
+				5F0C10F7288A874700C3426A /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				5F439D7A289BEB7800BA4D66 /* PhotoView.swift in Sources */,
 				5F0C10892889E27500C3426A /* BestCapturedLivePhotoApp.swift in Sources */,
 				5F50F74D288A97FB00BEFBB7 /* PhotosViewModel.swift in Sources */,
+				5FB392AC28A25C9900CEB85E /* SelectedPhotoView.swift in Sources */,
 				5F50F74F288AA04D00BEFBB7 /* ImagePicker.swift in Sources */,
 				5F50F751288AA6D000BEFBB7 /* ImageData.swift in Sources */,
 			);
@@ -503,6 +507,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -515,7 +520,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -533,6 +538,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -545,7 +551,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

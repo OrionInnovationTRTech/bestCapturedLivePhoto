@@ -29,6 +29,10 @@ struct ContentView: View {
     @State private var image: String?
     @State private var showSheet = false
     
+    @State private var showPhotoView = false
+    @State private var selectedImage: UIImage?
+    @State private var selectedQualityText: String?
+    
     
     //MARK: - BODY
     
@@ -40,10 +44,20 @@ struct ContentView: View {
                         HStack {
                             ForEach(self.photoViewModel.photos, id: \.id) { item in
                                  PhotoView(photo: item)
+                                    .onTapGesture {
+                                        print("aaa:\(item.qualityRequestText)")
+                                        self.selectedImage = item.photoFrame
+                                        self.selectedQualityText = item.qualityRequestText
+                                        self.showPhotoView.toggle()
+                                        
+                                    }
                             }
                             
                         }
-                    }
+                    }.sheet(isPresented: self.$showPhotoView) {
+                        SelectedPhotoView(image: selectedImage ?? UIImage(named: "IMG_3340")!, text: selectedQualityText ?? "0.00")
+                        
+                    } // move it here !!
                     
                     Image(uiImage: self.photoViewModel.bestPhoto ?? UIImage(named: "IMG_3340")! )
                         .resizable()
