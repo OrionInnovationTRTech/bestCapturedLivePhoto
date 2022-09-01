@@ -30,6 +30,8 @@ class PhotosViewModel: ObservableObject {
         }
     }
     
+    
+    
     @Published var bestPhoto =  UIImage(named: "IMG_3340")
     
     @Published var photos : [ImageData] = []
@@ -63,6 +65,7 @@ class PhotosViewModel: ObservableObject {
                 if resource.type == PHAssetResourceType.pairedVideo {
                     saveAssetResource(resource: resource, inDirectory: photoDir, buffer: nil, maybeError: nil)
                 }
+                
             }
         }
     
@@ -222,6 +225,4 @@ class PhotosViewModel: ObservableObject {
                 }
             }
         }
-    
-    
 }
