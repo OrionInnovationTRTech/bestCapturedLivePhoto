@@ -25,6 +25,7 @@ open BestCapturedLivePhoto.xcodeproj
 
 ## Images
 
+<img src="https://github.com/furkanerdogan1/photosRe/blob/main/IMG_5104.PNG" width="276" height="597" />
 
 
 
